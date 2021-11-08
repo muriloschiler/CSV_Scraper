@@ -8,8 +8,12 @@ namespace CSV_Scraper_Console
         //todo Ler e separar os dados contidos em um arquivo csv
         static void Main(string[] args)
         {
-            ScraperCSV scraperCSV = new ScraperCSV();
-            scraperCSV.ReadFile();            
+            try{
+                ScraperCSV scraperCSV = new ScraperCSV();
+                scraperCSV.ReadFile();            
+            }catch(Exception ex){
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

@@ -13,8 +13,11 @@ namespace CSV_Scraper_Console
             using (StreamReader sr = new StreamReader("exemplo.csv"))
             {
                     try
-                    {    
+                    {   
                         columns = convertToColumns(sr.ReadLine());
+                        if(columns == null){
+                            throw new DelimiterException("O delimitador precisa ser \",\" ou\";\"");
+                        }
 
                         string line;
                         while ((line = sr.ReadLine()) != null)
